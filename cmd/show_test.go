@@ -18,7 +18,7 @@ func TestShow(t *testing.T) {
 		{command: "sample-go-cli show --str \"test1 test2\"", want: "", errWant: "Parameter error: Optstr is not valid test1 test2"},
 		{command: "sample-go-cli show --int 1000 --str 123", want: "", errWant: "Parameter error: Optint cannot be greater than 10"},
 		{command: "sample-go-cli show --int -1 --str abc", want: "", errWant: "Parameter error: Optint must be greater than 0"},
-		{command: "sample-go-cli show --int 1 --str abc", want: "show called: optint: 1, optstr: abc", errWant: ""},
+		{command: "sample-go-cli show --int 1 --str abc", want: "show called: optint: 1, optstr: abc"},
 	}
 
 	for _, c := range cases {
