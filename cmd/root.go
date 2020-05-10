@@ -17,11 +17,10 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
-	"os"
-
 	homedir "github.com/mitchellh/go-homedir"
+	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"os"
 )
 
 var cfgFile string
@@ -36,6 +35,7 @@ func NewCmdRoot() *cobra.Command {
 	cmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 
 	cmd.AddCommand(NewCmdShow())
+	cmd.AddCommand(NewVersionCmd())
 	return cmd
 }
 
@@ -81,3 +81,10 @@ func initConfig() {
 		fmt.Println("Using config file:", viper.ConfigFileUsed())
 	}
 }
+
+//func newDefaultClient() (*Client, error) {
+//	endpointURL := viper.GetString("url")
+//	httpClient := &http.Client{}
+//	userAgent := fmt.Sprintf("hoge/%s (%s)", Version, runtime.Version())
+//	return newClient(endpointURL, httpClient, userAgent)
+//}
